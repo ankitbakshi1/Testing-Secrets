@@ -1,0 +1,22 @@
+name: Export Secrets
+
+on:
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  export-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Export secrets to env.conf
+        run: |
+          echo "# Environment variables" > env.conf
+          echo "SECRET2=$SECRET_VALUE" >> env.conf
+        env:
+          SECRET2: ${{ secrets.SECRET_VALUE }}
+
+      - name: Show env.conf
+        run: cat env.conf
