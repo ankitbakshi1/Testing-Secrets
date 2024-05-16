@@ -21,6 +21,8 @@ jobs:
       - name: Show env.conf
         run: cat env.conf
 
-      - name: Commit changes
-        run: |
-          git diff
+      - name: Upload Secret File
+        uses: actions/upload-artifact@v2
+        with:
+          name: exported-secret
+          path: env.conf
