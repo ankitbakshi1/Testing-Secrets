@@ -14,9 +14,9 @@ jobs:
       - name: Export secrets to env.conf
         run: |
           echo "# Environment variables" > env.conf
-          echo "SECRET2=$SECRET_VALUE" >> env.conf
+          echo "SECRET2=$SECRET2" >> env.conf
         env:
-          SECRET2: ${{ secrets.SECRET_VALUE }}
+          SECRET2: ${{ secrets.SECRET2 }}
 
       - name: Show env.conf
         run: cat env.conf
