@@ -20,3 +20,11 @@ jobs:
 
       - name: Show env.conf
         run: cat env.conf
+
+      - name: Commit changes
+        run: |
+          git config --global user.email "ankit.bakshi@wbdcontractor.com"
+          git config --global user.name "Ankit Bakshi"
+          git add env.conf
+          git commit -m "Updated env.conf"
+          git push
